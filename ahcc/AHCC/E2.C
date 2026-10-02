@@ -1171,6 +1171,7 @@ void collaps(NP np, long truth)
 	np->token = ICON;
 	np->val.i = truth;
 	np->tt = E_LEAF;
+	np->type = basic_type(T_BOOL, 56);	/* H3d FIX: a folded &&/|| constant must carry a type (was nil -> mustty/asn_check fault on ->type->token) */
 	freenode(np->left);
 	np->left = nil;
 	freenode(np->right);
